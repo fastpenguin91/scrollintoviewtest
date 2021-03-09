@@ -1,22 +1,86 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useRef, forwardRef } from "react";
+import CalendarList from "./CalendarList";
+
+const Article = forwardRef(({ onBackClick }, ref) => {
+  // const titleRef = useRef();
+
+  // function handleBackClick() {
+  //   // Scroll back to the title element.
+  //   titleRef.current.scrollIntoView({ behavior: "smooth" });
+  // }
+
+  return (
+    <article>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <h1 ref={ref}>A React article for Latin Readers</h1>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <p>...</p>
+      <button onClick={onBackClick}>Back to top</button>
+    </article>
+  );
+});
+
+const AnotherComponent = () => {
+  const articleRef = useRef();
+
+  function handleBackClick() {
+    articleRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  return <Article ref={articleRef} onBackClick={handleBackClick} />;
+};
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* <Article /> */}
+        {/* <AnotherComponent /> */}
+        <CalendarList />
       </header>
     </div>
   );
