@@ -4,6 +4,7 @@ import React, { useRef, forwardRef } from "react";
 import CalendarList from "./CalendarList";
 
 const Article = forwardRef(({ onBackClick }, ref) => {
+  // multiple of these
   // const titleRef = useRef();
 
   // function handleBackClick() {
@@ -65,6 +66,7 @@ const Article = forwardRef(({ onBackClick }, ref) => {
 });
 
 const AnotherComponent = () => {
+  // one of these
   const articleRef = useRef();
 
   function handleBackClick() {
@@ -79,8 +81,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* <Article /> */}
-        {/* <AnotherComponent /> */}
-        <CalendarList />
+        <AnotherComponent />
+        {/* <CalendarList /> */}
       </header>
     </div>
   );

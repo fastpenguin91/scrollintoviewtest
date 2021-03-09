@@ -1,10 +1,16 @@
 import dayjs from "dayjs";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 // const eventsArray = [];
 
 function CalendarList() {
+  // one of these
   const [eventsArray, setEventsArray] = useState([]);
+  const calendarCardRef = useRef();
   //   console.log("dateObj: ", dateObj);
+
+  function handleBackClick() {
+    calendarCardRef.current.scrollIntoView({ behavior: "smooth" });
+  }
 
   const addEvent = () => {
     let prevDate = eventsArray[eventsArray.length - 1]?.dateStr; //.dateStr;
@@ -30,13 +36,20 @@ function CalendarList() {
       <button onClick={addEvent}>Add an event</button>
       {eventsArray.length > 0 &&
         eventsArray.map((event) => {
-          return <CalendarCard key={event.id} title={event.title} />;
+          return (
+            <CalendarCard
+              ref={calendarCardRef}
+              key={event.id}
+              title={event.title}
+            />
+          );
         })}
     </div>
   );
 }
 
 function CalendarCard(props) {
+  // multiple of these
   return (
     <div>
       <h3>I am an event on {props.title}</h3>
