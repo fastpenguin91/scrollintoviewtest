@@ -79,11 +79,20 @@ const AnotherComponent = () => {
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <Article /> */}
-        <AnotherComponent />
-        {/* <CalendarList /> */}
+      <header>
+        Header area <button>other back to top</button>
       </header>
+      <div
+        style={{
+          marginTop: "60px",
+          maxHeight: 477,
+          overflow: "auto",
+          background: "hotpink",
+        }}
+      >
+        <AnotherComponent />
+      </div>
+      {/* <CalendarList /> */}
     </div>
   );
 }
