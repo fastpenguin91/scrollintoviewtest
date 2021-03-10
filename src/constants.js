@@ -7,3 +7,5 @@ export const eventsArray = [
   { dateStr: "2021-04-03T16:26:48.330Z", id: 5, title: "Apr 03 " },
   { dateStr: "2021-04-06T16:26:48.330Z", id: 6, title: "Apr 06 " },
 ];
+
+const articles = [{}];

@@ -90,6 +90,7 @@ function App() {
   const englishArticleRef = React.createRef();
   console.log("englishArticleRef created: ", englishArticleRef);
   const latinArticleRef = React.createRef();
+  let refList = [englishArticleRef, latinArticleRef];
   // console.log("still works???");
 
   function handleBackClick(selectedRef) {
@@ -97,18 +98,22 @@ function App() {
     selectedRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
+  // function addNewArticle() {
+
+  // }
+
   // let elephant = "rhinos";
   // let `${elephantRef}` = "rhinoRef";
 
   return (
     <div className="App">
-      <header>
+      {/* <header>
         Header area{" "}
-        <button onClick={() => handleBackClick(latinArticleRef)}>
-          Latin Article
+        <button onClick={() => handleBackClick(refList[1])}>
+          Latin Article index
         </button>
-        <button onClick={() => handleBackClick(englishArticleRef)}>
-          English Article
+        <button onClick={() => handleBackClick(refList[0])}>
+          English Article index
         </button>
       </header>
       <div
@@ -125,8 +130,8 @@ function App() {
           // handleEnglishBackClick={handleEnglishBackClick}
           // handleLatinBackClick={handleLatinBackClick}
         />
-      </div>
-      {/* <CalendarList /> */}
+      </div> */}
+      <CalendarList />
       {/* <CalendarList2 /> */}
     </div>
   );
