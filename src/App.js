@@ -1,7 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React, { useRef, forwardRef } from "react";
 import CalendarList from "./CalendarList";
+import CalendarList2 from "./CalendarList2";
 
 const Article = forwardRef(({ onBackClick, language }, ref) => {
   // multiple of these
@@ -67,53 +67,49 @@ const Article = forwardRef(({ onBackClick, language }, ref) => {
 const AnotherComponent = ({
   englishArticleRef,
   latinArticleRef,
-  handleEnglishBackClick,
-  handleLatinBackClick,
+  handleBackClick,
 }) => {
-  // one of these
-  // const articleRef = useRef();
-
-  // function handleBackClick() {
-  //   articleRef.current.scrollIntoView({ behavior: "smooth" });
-  // }
-
+  console.log("englishArticleRef in AnotherComponent: ", englishArticleRef);
   return (
     <div>
       <Article
         ref={latinArticleRef}
         language={"Latin"}
-        onBackClick={handleLatinBackClick}
+        // onBackClick={handleLatinBackClick}
       />
       <Article
         ref={englishArticleRef}
         language={"English"}
-        onBackClick={handleEnglishBackClick}
+        // onBackClick={handleEnglishBackClick}
       />
     </div>
   );
 };
 
 function App() {
-  const englishArticleRef = useRef();
-  const latinArticleRef = useRef();
-  console.log("still works???");
+  const englishArticleRef = React.createRef();
+  console.log("englishArticleRef created: ", englishArticleRef);
+  const latinArticleRef = React.createRef();
+  // console.log("still works???");
 
-  function handleEnglishBackClick() {
+  function handleBackClick(selectedRef) {
     console.log("selectedRef in handleBackClick: ");
-    englishArticleRef.current.scrollIntoView({ behavior: "smooth" });
+    selectedRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
-  function handleLatinBackClick() {
-    console.log("selectedRef in handleBackClick: ");
-    latinArticleRef.current.scrollIntoView({ behavior: "smooth" });
-  }
+  // let elephant = "rhinos";
+  // let `${elephantRef}` = "rhinoRef";
 
   return (
     <div className="App">
       <header>
         Header area{" "}
-        <button onClick={handleLatinBackClick}>Latin Article</button>
-        <button onClick={handleEnglishBackClick}>English Article</button>
+        <button onClick={() => handleBackClick(latinArticleRef)}>
+          Latin Article
+        </button>
+        <button onClick={() => handleBackClick(englishArticleRef)}>
+          English Article
+        </button>
       </header>
       <div
         style={{
@@ -126,11 +122,12 @@ function App() {
         <AnotherComponent
           englishArticleRef={englishArticleRef}
           latinArticleRef={latinArticleRef}
-          handleEnglishBackClick={handleEnglishBackClick}
-          handleLatinBackClick={handleLatinBackClick}
+          // handleEnglishBackClick={handleEnglishBackClick}
+          // handleLatinBackClick={handleLatinBackClick}
         />
       </div>
       {/* <CalendarList /> */}
+      {/* <CalendarList2 /> */}
     </div>
   );
 }
